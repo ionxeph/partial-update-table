@@ -1,4 +1,5 @@
 import "./style.css";
+import { observer } from "./observer";
 
 const tableData: string[][] = [];
 new Array(1000).fill(0).forEach((_) => {
@@ -42,6 +43,7 @@ tableData.forEach((row) => {
     const td = document.createElement("td");
     td.innerHTML = cell;
     tr.appendChild(td);
+    observer.observe(td);
   });
   tbody?.appendChild(tr);
 });
